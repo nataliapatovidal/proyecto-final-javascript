@@ -5,11 +5,48 @@
     padding: 0;
 }
 
-navbar-nav {
-    list-style: none;
-    text-decoration: none;
+@font-face {
+    font-family:"Amaranth-bold" ;
+    src: url("../assets/fonts/Amaranth-Bold.ttf");
 }
 
-.carousel-caption{
+@font-face {
+    font-family:"Amaranth-Regular" ;
+    src: url("../assets/fonts/Amaranth-Regular.ttf");
+}
+
+@font-face {
+    font-family:"freescpt" ;
+    src: url("../assets/fonts/FREESCPT.TTF");
+}
+
+
+.nav{
+    background-color: rgb(253, 217, 214);
+}
+
+.logo{
+    max-width: 12.5rem;
+}
+
+.nav-link {
+    list-style: none;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-family: "Amaranth-bold";
+    gap: 1.875rem;
+    margin-left: 1.875rem;
+}
+
+.nav-link, .nav-link active, .nav-link disabled {
+    color: #e70e0b;  
+    &:hover{
+    color: white;
+    }
+}
+
+
+.carousel-caption{ 
     color: black;
+    
 }
