@@ -1,5 +1,5 @@
 
-/*function fechaDeReserva (fechaInicio, fechaFinal){
+function fechaDeReserva (fechaInicio, fechaFinal){
 
     const unDiaDeEstadiaEnMil = 24 * 60 * 60 * 1000;
     const diferenciaDeEstadiaMil = fechaFinal - fechaInicio;
@@ -41,7 +41,7 @@ function reservar (){
     }
 }
 reservar();
-*/
+
 
 const habitaciones = [
     {
