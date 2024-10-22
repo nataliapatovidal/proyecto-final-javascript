@@ -1,5 +1,5 @@
 
-/*function fechaDeReserva (fechaInicio, fechaFinal){
+function fechaDeReserva (fechaInicio, fechaFinal){
 
     const unDiaDeEstadiaEnMil = 24 * 60 * 60 * 1000;
     const diferenciaDeEstadiaMil = fechaFinal - fechaInicio;
@@ -41,9 +41,9 @@ function reservar (){
     }
 }
 reservar();
-*/
 
-const habitaciones = [
+
+const HABITACIONES = [
     {
         nombre: "Habitación 1",
         descripcion: "Cama matrimonial",
@@ -62,10 +62,10 @@ const habitaciones = [
     
 ];
 
-const cardContainer = document.getElementById('card-container');
+const CARD_CONTAINER = document.getElementById('card-container');
 
-habitaciones.forEach(habitacion => {
-    const card = `
+HABITACIONES.forEach(habitacion => {
+    const CARD = `
         <div class="col-md-4">
             <div class="card mb-4">
                 <img src="${habitacion.imagen}" class="card-img-top" alt="${habitacion.nombre}">
@@ -78,11 +78,11 @@ habitaciones.forEach(habitacion => {
         </div>
     `;
 
-    cardContainer.innerHTML += card;
+    CARD_CONTAINER.innerHTML += CARD;
 });
 
 
-const servicios = [
+const SERVICIOS = [
     {
         nombre: "Sala de estar - Cocina",
         descripcion: "Heladera, Microondas y vajilla, TV, Cable, Netflix y Wifi",
@@ -101,10 +101,10 @@ const servicios = [
     
 ];
 
-const cardContainer2 = document.getElementById('card-container2');
+const CARD_CONTAINER2 = document.getElementById('card-container2');
 
-servicios.forEach(servicio => {
-    const card = `
+SERVICIOS.forEach(servicio => {
+    const CARD = `
         <div class="col-md-4">
             <div class="card mb-4">
                 <img src="${servicio.imagen}" class="card-img-top" alt="${servicio.nombre}">
@@ -117,5 +117,5 @@ servicios.forEach(servicio => {
         </div>
     `;
 
-    cardContainer2.innerHTML += card;
+    CARD_CONTAINER2.innerHTML += CARD;
 });
