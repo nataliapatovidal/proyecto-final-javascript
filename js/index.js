@@ -1,5 +1,5 @@
 
-function fechaDeReserva (fechaInicio, fechaFinal){
+/*function fechaDeReserva (fechaInicio, fechaFinal){
 
     const unDiaDeEstadiaEnMil = 24 * 60 * 60 * 1000;
     const diferenciaDeEstadiaMil = fechaFinal - fechaInicio;
@@ -41,7 +41,7 @@ function reservar (){
     }
 }
 reservar();
-
+*/
 
 const habitaciones = [
     {
@@ -79,4 +79,43 @@ habitaciones.forEach(habitacion => {
     `;
 
     cardContainer.innerHTML += card;
+});
+
+
+const servicios = [
+    {
+        nombre: "Sala de estar - Cocina",
+        descripcion: "Heladera, Microondas y vajilla, TV, Cable, Netflix y Wifi",
+        imagen: "./assets/comedor.jpg"
+    },
+    {
+        nombre: "Quincho",
+        descripcion: "Equipado con asador",
+        imagen: "./assets/asador.jpeg"
+    },
+    {
+        nombre: "Cochera",
+        descripcion: "Capacidad 2 autos",
+        imagen: "./assets/cocheraAbierta.jpg"
+    }
+    
+];
+
+const cardContainer2 = document.getElementById('card-container2');
+
+servicios.forEach(servicio => {
+    const card = `
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="${servicio.imagen}" class="card-img-top" alt="${servicio.nombre}">
+                <div class="card-body">
+                    <h5 class="card-title"> ${servicio.nombre}</h5>
+                    <p class="card-text">${servicio.descripcion}</p>
+                    <a href="#" class="btn btn-primary">Mira más fotos</a>
+                </div>
+            </div>
+        </div>
+    `;
+
+    cardContainer2.innerHTML += card;
 });
