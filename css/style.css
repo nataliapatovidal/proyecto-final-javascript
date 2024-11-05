@@ -62,6 +62,7 @@
     color: white;
     background-color: rgb(158, 99, 29);
     padding: .375rem;
+    margin: 0rem 0rem 1.25rem 0rem;
 }
 
 .h3{
@@ -94,14 +95,12 @@
     color: rgb(158, 99, 29); 
 }
 
-
 .titulosServicios{
-    font-family:"freescpt";
     color:rgb(158, 99, 29);
-    font-size: 2.25rem;
-    font-weight: 900;
+    font-family: "freescpt";
     text-align: center;
-    
+    font-size: 2.5rem;
+    font-weight: 900;
 }
 
 .parrafoServicios{
@@ -118,6 +117,7 @@
 
 .cuerpo{
     background-color: rgb(253, 239, 214);
+    margin: 0rem 0rem 1.25rem 0rem;
 }
 
 .textoInicial{
@@ -136,14 +136,29 @@
 
 .card-title{
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1.375rem;
     font-family: "Amaranth-bold";
+    color:rgb(158, 99, 29);
 }
 
 .card-text {
     text-align: center;
     font-size: 1.25rem;
     font-family: "Amaranth-Regular";
+}
+
+.btn-primary {
+    background-color: rgb(158, 99, 29); 
+    border-color: rgb(253, 239, 214); 
+    color: #ffffff;
+    font-family: "Amaranth-Regular";
+    
+
+    &:hover {
+        background-color: rgb(253, 239, 214); 
+        border-color:rgb(158, 99, 29); 
+        color: black;
+    }
 }
 
 .cocina-quincho{
@@ -158,6 +173,112 @@
     display: flex;
     justify-content: space-around;
 }
+.tituloCalendario{
+    color:rgb(158, 99, 29);
+    font-family: "freescpt";
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.calendario{
+    background-color: rgb(253, 239, 214);
+    width: 80%;
+    max-width: 37.5rem;
+    margin: 0;
+    padding: .5rem 0;
+}
+
+.calendarioDia{
+    font-family: "Amaranth-Regular";
+}
+
+.calendarioInfo{
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    font-family: "Amaranth-bold";
+    color:rgb(158, 99, 29);
+}
+
+.calendario-prev{
+    margin-right: auto;
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+
+.calendario-next{
+    margin-left: auto;
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+
+.caledarioWeek{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: .625rem;
+}
+
+.calendario-mes{
+    padding: .5rem 1em;
+}
+
+.calendario-anio{
+    padding: .5rem 1em;
+}
+
+.calendarioDia{
+    text-align: center;
+    line-height: 2;
+}
+.calendarioData{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: .625rem;
+}
+.today{
+    background: rgb(158, 99, 29); 
+    color:white;
+    width: 50%;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.calendarioUltimoDia{
+    opacity: 0.3;
+}
+
+.selected-range{
+    background-color:  rgb(107, 62, 6);
+    color: white;
+}
+
+.selected{
+    background-color: rgb(107, 62, 6);
+    color: white;
+}
+
+.cantidadDePersonas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.mt-3{
+    font-family: "Amaranth-Regular";
+}
+
+.containedorReserva {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:flex-start;
+    margin: 0 auto; 
+    
+}
+
 
 .direccionesh1{
     text-align: right;
@@ -166,6 +287,9 @@
     font-family: "Amaranth-bold";
 }
 
+.dropdown-menu {
+    width: auto; /* Asegura que el menú desplegable se alinee con el botón */
+}
 
 footer ul {
     list-style: none; 
