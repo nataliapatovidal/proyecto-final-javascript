@@ -220,12 +220,12 @@ reservarBtn.addEventListener('click', () => {
     }
 });
 
+
 function reservar() {
      // Calcular el número de días basado en las fechas seleccionadas
      let cantidadDias = fechaDeReserva(fechaInicio, fechaFinal); // Usa esta función para calcular días
-     document.getElementById("cantidadDias").textContent = "Cantidad de días: " + cantidadDias; // Mostrar cantidad de días en el HTML
+        document.getElementById("cantidadDias").textContent = "Cantidad de días: " + cantidadDias;
     
-
     if (cantidadDias <= 0) {
         alert("Selecciona un rango válido de fechas.");
         return; // Salir de la función si no es un rango válido
@@ -240,8 +240,15 @@ function reservar() {
     } else {
          costoTotal = (costoPorDia * cantidadDePersonas) * cantidadDias;
     }
-
     document.getElementById("costoTotal").textContent = "El costo total de la estadía es: $" + costoTotal;
+    
+
+const RESERVA = {
+    dias: cantidadDias,
+    personas: cantidadDePersonas,
+    total: costoTotal
+};
+
+localStorage.setItem("RESERVA", JSON.stringify(RESERVA));
+
 }
-
-
