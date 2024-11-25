@@ -1,0 +1,39 @@
+{ 
+    "HABITACIONES": [
+    {
+        "nombre": "Habitación 1",
+        "descripcion": "Cama matrimonial",
+        "imagen": "./assets/pieza-1.jpg"
+    },
+    {
+        "nombre": "Habitación 2",
+        "descripcion": "cama matrimonial, cama de una plaza, cucheta",
+        "imagen": "./assets/pieza-2.jpg"
+    },
+    {
+        "nombre": "Habitación 3",
+        "descripcion": "cama matrimonial, cucheta",
+        "imagen": "./assets//pieza-3.jpg"
+    }
+    
+],
+
+    "SERVICIOS": [
+    {
+        "nombre": "Sala de estar - Cocina",
+        "descripcion": "Heladera, Microondas y vajilla, TV, Cable, Netflix y Wifi",
+        "imagen": "./assets/comedor.jpg"
+    },
+    {
+        "nombre": "Quincho",
+        "descripcion": "Equipado con asador",
+        "imagen": "./assets/asador.jpeg"
+    },
+    {
+        "nombre": "Cochera",
+        "descripcion": "Capacidad 2 autos",
+        "imagen": "./assets/cocheraAbierta.jpg"
+    }
+    
+]
+} 

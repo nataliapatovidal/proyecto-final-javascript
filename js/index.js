@@ -1,80 +1,71 @@
 
-const HABITACIONES = [
-    {
-        nombre: "Habitación 1",
-        descripcion: "Cama matrimonial",
-        imagen: "./assets/pieza-1.jpg"
-    },
-    {
-        nombre: "Habitación 2",
-        descripcion: "cama matrimonial, cama de una plaza, cucheta",
-        imagen: "./assets/pieza-2.jpg"
-    },
-    {
-        nombre: "Habitación 3",
-        descripcion: "cama matrimonial, cucheta",
-        imagen: "./assets//pieza-3.jpg"
-    }
-    
-];
-
 const CARD_CONTAINER = document.getElementById('card-container');
 
-HABITACIONES.forEach(habitacion => {
-    const CARD = `
-        <div class="col-md-4">
-            <div class="card mb-4" style="background-color: rgb(253, 239, 214);">
-                <img src="${habitacion.imagen}" class="card-img-top" alt="${habitacion.nombre}">
-                <div class="card-body">
-                    <h5 class="card-title"> ${habitacion.nombre}</h5>
-                    <p class="card-text">${habitacion.descripcion}</p>
-                    <a href="#" class="btn btn-primary">Mira más fotos</a>
-                </div>
-            </div>
-        </div>
-    `;
+    async function miJson () {
 
-    CARD_CONTAINER.innerHTML += CARD;
-});
+        try {
+            const response = await fetch('../datos.json');
+            const dataJson = await response.json();
+            const HABITACIONES = dataJson.HABITACIONES;
 
+            HABITACIONES.forEach(habitacion => {
+                const CARD = `
+                    <div class="col-md-4">
+                        <div class="card mb-4" style="background-color: rgb(253, 239, 214);">
+                            <img src="${habitacion.imagen}" class="card-img-top" alt="${habitacion.nombre}">
+                            <div class="card-body">
+                                <h5 class="card-title"> ${habitacion.nombre}</h5>
+                                <p class="card-text">${habitacion.descripcion}</p>
+                                <a href="#" class="btn btn-primary">Mira más fotos</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
 
-const SERVICIOS = [
-    {
-        nombre: "Sala de estar - Cocina",
-        descripcion: "Heladera, Microondas y vajilla, TV, Cable, Netflix y Wifi",
-        imagen: "./assets/comedor.jpg"
-    },
-    {
-        nombre: "Quincho",
-        descripcion: "Equipado con asador",
-        imagen: "./assets/asador.jpeg"
-    },
-    {
-        nombre: "Cochera",
-        descripcion: "Capacidad 2 autos",
-        imagen: "./assets/cocheraAbierta.jpg"
+                CARD_CONTAINER.innerHTML += CARD;
+            })
+        }
+        catch (error) {
+            console.error('hay un error');
+        }
     }
-    
-];
+
+    miJson();
 
 const CARD_CONTAINER2 = document.getElementById('card-container2');
 
-SERVICIOS.forEach(servicio => {
-    const CARD = `
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <img src="${servicio.imagen}" class="card-img-top" alt="${servicio.nombre}">
-                <div class="card-body">
-                    <h5 class="card-title"> ${servicio.nombre}</h5>
-                    <p class="card-text">${servicio.descripcion}</p>
-                    <a href="#" class="btn btn-primary">Mira más fotos</a>
-                </div>
-            </div>
-        </div>
-    `;
+    async function miJson2 () {
 
-    CARD_CONTAINER2.innerHTML += CARD;
-});
+        try {
+            const response = await fetch('../datos.json');
+            const dataJson2 = await response.json();
+            const SERVICIOS = dataJson2.SERVICIOS;
+
+        SERVICIOS.forEach(servicio => {
+            const CARD = `
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="${servicio.imagen}" class="card-img-top" alt="${servicio.nombre}">
+                        <div class="card-body">
+                            <h5 class="card-title"> ${servicio.nombre}</h5>
+                            <p class="card-text">${servicio.descripcion}</p>
+                            <a href="#" class="btn btn-primary">Mira más fotos</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            CARD_CONTAINER2.innerHTML += CARD;
+        })
+
+        }
+        catch (error) {
+            console.error('hay un error');
+        }
+        }
+
+        miJson2();
+
 
 let nombresMes = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
