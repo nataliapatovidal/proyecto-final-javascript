@@ -201,25 +201,25 @@ function fechaDeReserva (fechaInicio, fechaFinal){
     return Math.round (diferenciaDeEstadiaMil / unDiaDeEstadiaEnMil);
 }
 
-let reservarBtn = document.getElementById('reservarBtn');
+let cotizarBtn = document.getElementById('cotizarBtn');
 
-reservarBtn.addEventListener('click', () => {
+cotizarBtn.addEventListener('click', () => {
     if (fechaInicio && fechaFinal) {
-        reservar(); // Llama a la función de reservar si las fechas están seleccionadas
+        cotizar(); 
     } else {
         alert("Por favor, selecciona un rango de fechas válido.");
     }
 });
 
 
-function reservar() {
+function cotizar() {
      // Calcular el número de días basado en las fechas seleccionadas
-     let cantidadDias = fechaDeReserva(fechaInicio, fechaFinal); // Usa esta función para calcular días
-        document.getElementById("cantidadDias").textContent = "Cantidad de días: " + cantidadDias;
+    let cantidadDias = fechaDeReserva(fechaInicio, fechaFinal); // Usa esta función para calcular días
+        document.getElementById("cantidadDias").textContent = `Cantidad de días: ${cantidadDias}`;
     
     if (cantidadDias <= 0) {
         alert("Selecciona un rango válido de fechas.");
-        return; // Salir de la función si no es un rango válido
+        return null; // Salir de la función si no es un rango válido
     }
 
     let costoPorDia = 10000;
@@ -231,15 +231,64 @@ function reservar() {
     } else {
          costoTotal = (costoPorDia * cantidadDePersonas) * cantidadDias;
     }
-    document.getElementById("costoTotal").textContent = "El costo total de la estadía es: $" + costoTotal;
+    document.getElementById("costoTotal").textContent = `El costo total de la estadía es: $${costoTotal}`;
     
 
-const RESERVA = {
+const COTIZACION = {
     dias: cantidadDias,
     personas: cantidadDePersonas,
     total: costoTotal
 };
 
-localStorage.setItem("RESERVA", JSON.stringify(RESERVA));
+localStorage.setItem("COTIZACION", JSON.stringify(COTIZACION));
+
+return costoTotal;
 
 }
+
+
+let reservarBtn = document.getElementById('reservarBtn');
+
+reservarBtn.addEventListener('click', () => {
+    if (fechaInicio && fechaFinal) {
+
+        const costoTotal = cotizar();
+
+        // Validar si se calculó correctamente
+        if (costoTotal === null) {
+            return; // Salir si las fechas no son válidas
+        }
+
+        const FECHADEINICIOFORMATEADA = new Date(fechaInicio).toLocaleDateString('es-AR', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric'
+        });
+
+        const FECHADEFINALFORMATEADA = new Date(fechaFinal).toLocaleDateString('es-AR', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric'
+        });
+    
+        
+        const MENSAJE = `Hola, me interesa realizar una reserva. Aquí están los detalles:
+        - Fecha de inicio: ${FECHADEINICIOFORMATEADA}
+        - Fecha de fin: ${FECHADEFINALFORMATEADA}
+        - Cantidad de personas: ${cantidadDePersonas}
+        - Costo total: $${costoTotal}`;
+        
+        const MENSAJEURI = encodeURIComponent(MENSAJE);
+        
+        // Número de WhatsApp
+        const NUMEROWHATSAPP  = "5493543583577";
+        
+        // Redirigir al enlace de WhatsApp
+        const url = `https://api.whatsapp.com/send?phone=${NUMEROWHATSAPP}&text=${MENSAJEURI}`;
+        window.open(url, '_blank');
+    } else {
+        alert("Por favor, selecciona un rango de fechas válido.");
+    }
+});
+
+
