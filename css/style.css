@@ -177,7 +177,7 @@
     color:rgb(158, 99, 29);
     font-family: "freescpt";
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.75rem;
     font-weight: 900;
 }
 
@@ -191,13 +191,14 @@
 
 .calendarioDia{
     font-family: "Amaranth-Regular";
+    font-size: 1rem;
 }
 
 .calendarioInfo{
     display: flex;
     align-items: center;
     padding: 0 2rem;
-    font-size: 1.2rem;
+    font-size: 1.625rem;
     font-family: "Amaranth-bold";
     color:rgb(158, 99, 29);
 }
@@ -339,4 +340,36 @@ footer li {
         background: white;
         text-decoration: none;
         }
+}
+
+@media (max-width: 960px) {
+    .parrafoServicios {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items:center;
+        text-align: center;
+    }
+
+    .containedorReserva{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .calendarioInfo{
+        font-size:20px;
+    }
+}
+
+@media (max-width: 415px) {
+    .calendario{
+        width: 94%;
+    }
+
+    .calendarioInfo{
+        font-size: 1rem;
+    }
+    .calendarioDia{
+        font-size: 1rem;
+    }
 }
