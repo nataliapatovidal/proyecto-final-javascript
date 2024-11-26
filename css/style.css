@@ -289,6 +289,33 @@
     
 }
 
+.tituloGoogleMap{ 
+    color:rgb(158, 99, 29);
+    font-family: "freescpt";
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+
+.contenedorMapa{
+    border-color: rgb(158, 99, 29);
+    margin: 0rem 0rem 1.875rem 0rem;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.embed-responsive {
+    width: 100%;
+    height: 100%;
+}
+.embed-responsive-item {
+    width: 100%;
+    height: 100%;
+}
 .imagenLogo{
     margin: .625rem .625rem 0rem .625rem;
     display: flex;

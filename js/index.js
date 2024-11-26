@@ -327,3 +327,7 @@ reservarBtn.addEventListener('click', () => {
 });
 
 
+// Llama a la función cuando cargue el script
+
+
+
