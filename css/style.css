@@ -169,6 +169,15 @@
     
 
 }
+
+.modal-title{
+    color:rgb(158, 99, 29);
+    font-family: "Amaranth-bold";
+    text-align: center;
+    font-size: 1.375rem;
+    font-weight: 900;
+}
+
 .titulos{
     display: flex;
     justify-content: space-around;

@@ -22,17 +22,37 @@
     {
         "nombre": "Sala de estar - Cocina",
         "descripcion": "Heladera, Microondas y vajilla, TV, Cable, Netflix y Wifi",
-        "imagen": "./assets/comedor.jpg"
+        "imagen": "./assets/comedor.jpg",
+        "fotosAdicionales": [
+            "./assets/LIVING.jpg"
+        ],
+        "fotosAdicionales2": [
+            "./assets/comedor.jpg"
+        ]
     },
     {
         "nombre": "Quincho",
         "descripcion": "Equipado con asador",
-        "imagen": "./assets/asador.jpeg"
+        "imagen": "./assets/asador.jpeg",
+        "fotosAdicionales": [
+            "./assets/quincho2.jpg"
+        ],
+        "fotosAdicionales2": [
+            "./assets/asador3.jpeg"
+        ]
     },
     {
         "nombre": "Cochera",
         "descripcion": "Capacidad 2 autos",
-        "imagen": "./assets/cocheraAbierta.jpg"
+        "imagen": "./assets/cocheraAbierta.jpg",
+        "fotosAdicionales": [
+            "./assets/cochera2.jpg"
+
+        ],
+        "fotosAdicionales2": [
+            "./assets/cochera3.jpg"
+
+        ]
     }
     
 ]

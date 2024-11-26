@@ -16,7 +16,6 @@ const CARD_CONTAINER = document.getElementById('card-container');
                             <div class="card-body">
                                 <h5 class="card-title"> ${habitacion.nombre}</h5>
                                 <p class="card-text">${habitacion.descripcion}</p>
-                                <a href="#" class="btn btn-primary">Mira más fotos</a>
                             </div>
                         </div>
                     </div>
@@ -30,6 +29,7 @@ const CARD_CONTAINER = document.getElementById('card-container');
         }
     }
 
+    
     miJson();
 
 const CARD_CONTAINER2 = document.getElementById('card-container2');
@@ -41,7 +41,7 @@ const CARD_CONTAINER2 = document.getElementById('card-container2');
             const dataJson2 = await response.json();
             const SERVICIOS = dataJson2.SERVICIOS;
 
-        SERVICIOS.forEach(servicio => {
+        SERVICIOS.forEach((servicio, index) => {
             const CARD = `
                 <div class="col-md-4">
                     <div class="card mb-4">
@@ -49,20 +49,55 @@ const CARD_CONTAINER2 = document.getElementById('card-container2');
                         <div class="card-body">
                             <h5 class="card-title"> ${servicio.nombre}</h5>
                             <p class="card-text">${servicio.descripcion}</p>
-                            <a href="#" class="btn btn-primary">Mira más fotos</a>
+                            <button class="btn btn-primary" data-index="${index}" onclick="mostrarMasFotos(${index})">Mira más fotos</button>
                         </div>
                     </div>
                 </div>
             `;
 
             CARD_CONTAINER2.innerHTML += CARD;
-        })
+        });
 
         }
         catch (error) {
             console.error('hay un error');
         }
         }
+        function mostrarMasFotos(index) {
+            console.log('Index recibido:', index);
+        
+            fetch('../datos.json')
+                .then(response => {
+                    console.log('Respuesta del fetch:', response);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Datos JSON:', data);
+                    const servicios = data.SERVICIOS[index];
+                    console.log('Servicio seleccionado:', servicios);
+
+                    if (!servicios.fotosAdicionales) {
+                        console.error('No hay fotos adicionales para este servicio');
+                        return;
+                    }
+                    
+                    const modalBody = document.getElementById('modalBody');
+                    // Limpiar contenido anterior
+                    modalBody.innerHTML = '';
+        
+                    // Agregar las fotos adicionales
+                    servicios.fotosAdicionales.forEach(foto => {
+                        modalBody.innerHTML += `<img src="${servicios.fotosAdicionales}" class="img-fluid mb-2" alt="Foto adicional">`;
+                        modalBody.innerHTML += `<img src="${servicios.fotosAdicionales2}" class="img-fluid mb-2" alt="Foto adicional">`;
+                    });
+        
+                    // Mostrar el modal
+                    const photoModal = new bootstrap.Modal(document.getElementById('photoModal'));
+                    photoModal.show();
+                })
+                .catch(error => console.error('Error al cargar más fotos:', error));
+        }
+        
 
         miJson2();
 
