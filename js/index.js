@@ -218,12 +218,12 @@ function resetCalendario() {
 }
 
 
-let cantidadDePersonas = 0; // Inicializa la variable para almacenar la cantidad seleccionada
+let cantidadDePersonas = 0; 
 
-// Selecciona todos los elementos del dropdown y agrega un evento a cada uno
+
 document.querySelectorAll('.dropdown-item').forEach(item => {
     item.addEventListener('click', (event) => {
-        cantidadDePersonas = parseInt(event.target.textContent); // Actualiza cantidadDePersonas con el valor seleccionado
+        cantidadDePersonas = parseInt(event.target.textContent); 
         document.getElementById("resultado").textContent = "Cantidad de personas seleccionadas: " + cantidadDePersonas;
     });
 });
@@ -249,7 +249,7 @@ cotizarBtn.addEventListener('click', () => {
 
 function cotizar() {
      // Calcular el número de días basado en las fechas seleccionadas
-    let cantidadDias = fechaDeReserva(fechaInicio, fechaFinal); // Usa esta función para calcular días
+    let cantidadDias = fechaDeReserva(fechaInicio, fechaFinal); // esta función calcular días
         document.getElementById("cantidadDias").textContent = `Cantidad de días: ${cantidadDias}`;
     
     if (cantidadDias <= 0) {
@@ -314,11 +314,7 @@ reservarBtn.addEventListener('click', () => {
         - Costo total: $${costoTotal}`;
         
         const MENSAJEURI = encodeURIComponent(MENSAJE);
-        
-        // Número de WhatsApp
         const NUMEROWHATSAPP  = "5493543583577";
-        
-        // Redirigir al enlace de WhatsApp
         const url = `https://api.whatsapp.com/send?phone=${NUMEROWHATSAPP}&text=${MENSAJEURI}`;
         window.open(url, '_blank');
     } else {
@@ -327,7 +323,7 @@ reservarBtn.addEventListener('click', () => {
 });
 
 
-// Llama a la función cuando cargue el script
+
 
 
 
