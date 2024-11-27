@@ -4,7 +4,7 @@ const CARD_CONTAINER = document.getElementById('card-container');
     async function miJson () {
 
         try {
-            const response = await fetch('../datos.json');
+            const response = await fetch('./datos.json');
             const dataJson = await response.json();
             const HABITACIONES = dataJson.HABITACIONES;
 
@@ -37,7 +37,7 @@ const CARD_CONTAINER2 = document.getElementById('card-container2');
     async function miJson2 () {
 
         try {
-            const response = await fetch('../datos.json');
+            const response = await fetch('./datos.json');
             const dataJson2 = await response.json();
             const SERVICIOS = dataJson2.SERVICIOS;
 
@@ -60,15 +60,17 @@ const CARD_CONTAINER2 = document.getElementById('card-container2');
 
         }
         catch (error) {
-            console.error('hay un error');
+            console.error('Ocurrió un problema. Intente de nuevo más tarde.')
         }
         }
         function mostrarMasFotos(index) {
             console.log('Index recibido:', index);
         
-            fetch('../datos.json')
+            fetch('./datos.json')
                 .then(response => {
-                    console.log('Respuesta del fetch:', response);
+                    if (!response.ok) {
+                        throw new Error('Error en la respuesta de la red');
+                    }
                     return response.json();
                 })
                 .then(data => {
@@ -76,19 +78,20 @@ const CARD_CONTAINER2 = document.getElementById('card-container2');
                     const servicios = data.SERVICIOS[index];
                     console.log('Servicio seleccionado:', servicios);
 
-                    if (!servicios.fotosAdicionales) {
+                    if (!servicios.fotosAdicionales || !servicios.fotosAdicionales2) {
                         console.error('No hay fotos adicionales para este servicio');
                         return;
                     }
                     
                     const modalBody = document.getElementById('modalBody');
-                    // Limpiar contenido anterior
                     modalBody.innerHTML = '';
         
                     // Agregar las fotos adicionales
                     servicios.fotosAdicionales.forEach(foto => {
-                        modalBody.innerHTML += `<img src="${servicios.fotosAdicionales}" class="img-fluid mb-2" alt="Foto adicional">`;
-                        modalBody.innerHTML += `<img src="${servicios.fotosAdicionales2}" class="img-fluid mb-2" alt="Foto adicional">`;
+                        modalBody.innerHTML += `<img src="${foto}" class="img-fluid mb-2" alt="Foto adicional">`;
+                    });
+                    servicios.fotosAdicionales2.forEach(foto => {
+                        modalBody.innerHTML += `<img src="${foto}" class="img-fluid mb-2" alt="Foto adicional">`;
                     });
         
                     // Mostrar el modal
@@ -96,7 +99,7 @@ const CARD_CONTAINER2 = document.getElementById('card-container2');
                     photoModal.show();
                 })
                 .catch(error => console.error('Error al cargar más fotos:', error));
-        }
+            }
         
 
         miJson2();
