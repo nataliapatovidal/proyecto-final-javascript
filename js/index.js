@@ -28,7 +28,6 @@ const CARD_CONTAINER = document.getElementById('card-container');
             console.error('hay un error');
         }
     }
-
     
     miJson();
 
