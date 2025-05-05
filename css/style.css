@@ -29,49 +29,82 @@
     max-width: 9.375rem;
 }
 
+.portada {
+    position: relative;
+    text-align: center;
+}
+
+  /* SUPERPONER H1 SOBRE LA IMAGEN, MÁRGEN INFERIOR IZQUIERDO */
+.titulo-sobre-imagen {
+    position: absolute;
+    bottom: 9.375rem;
+    left: 2rem;
+    z-index: 2;
+}
+
+.titulo {
+    font-size: 4.375rem;
+    font-weight: 598;
+    color: rgb(211, 150, 75);
+    font-family: "freescpt";
+    margin: 0;
+    text-align: left;
+    padding: .625rem 1.25rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+
 .fondoRio {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    max-width: 100% !important;
-    height: auto !important;
-    justify-self: center;
-    padding: 0;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+  /* PARTE INFERIOR */
+.contenido-inferior {
+    display: flex;
+    justify-content: space-between;
+    padding: .125rem 3%;
+    flex-wrap: wrap;
+    color: rgb(158, 99, 29);
+}
+
+.descripcion {
+    flex: 1;
+    min-width: 6.25rem;
+    max-width: 50%;
+    font-size: 1.125rem;
+    text-align: left;
+    font-family: "Amaranth-bold";
+}
+
+.texto-derecho {
+    flex: 1;
+    min-width: 15.625rem;
+    max-width: 50%;
+    text-align: right;
+    align-self: center;
+}
+
+.alquiler {
+    font-family: "Amaranth-bold";
+    color: rgb(158, 99, 29);
+    font-size: 1.125rem;
     margin: 0;
 }
 
-.h1{
-    font-family:"freescpt";
-    color:rgb(158, 99, 29);
-    font-size: 2.5rem;
-    font-weight: 900;
-    text-align: center;
-    margin: 0px 0px 0px 0px;
-}
-.p{
-    font-family: "Amaranth-Regular";
-    font-size: .875rem;
-    text-align: center;
-    padding: .625rem;
-    color: black;
-}
-.h2{
+.h2 {
     font-family: "Amaranth-bold";
-    text-align: center;
-    font-size: 1rem;
+    font-size: 1.125rem;
     color: white;
     background-color: rgb(158, 99, 29);
-    padding: .375rem;
-    margin: 0rem 0rem 1.25rem 0rem;
+    padding: .5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.25rem;
+    display: inline-block;
 }
 
-.h3{
-    font-family: "Amaranth-bold";
-    text-align: center;
-    font-size: 1rem;
-    padding: 0px 0rem 30px 0rem;
-    color:rgb(158, 99, 29);
-}
 
 .nav-link {
     list-style: none;
@@ -101,6 +134,8 @@
     text-align: center;
     font-size: 2.5rem;
     font-weight: 900;
+    margin: 5px 0px 0px 0px;
+    
 }
 
 .parrafoServicios{
@@ -116,15 +151,66 @@
 }
 
 .cuerpo{
-    background-color: rgb(253, 239, 214);
-    margin: 0rem 0rem 1.25rem 0rem;
+    background: linear-gradient(
+        to bottom,
+      rgba(253, 239, 214, 0) 2%,       /* Transparente arriba */
+      rgba(253, 239, 214, 1) 20%,      /* Empieza el color sólido */
+      rgba(253, 239, 214, 1) 80%,      /* Termina el color sólido */
+      rgb(253, 239, 214) 100%      /* Transparente abajo */
+    );
+    padding: 30px 0rem 0rem 0rem;
+    
 }
-
 .textoInicial{
     font-size: 1.25rem;
     font-family: "Amaranth-bold";
     gap: 1.875rem;  
     text-align: center;
+}
+
+/* Contenedor de la imagen decorativa */
+.imagenDecorativaFondo {
+    position: relative;
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho */
+    height: 540px; /* Ajusta la altura de la imagen según necesites */
+    overflow: hidden; /* Asegura que la imagen no sobresalga del contenedor */
+}
+
+.imagenDecorativa {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* Hace que la imagen ocupe todo el ancho */
+    height: 100%; /* Hace que la imagen ocupe toda la altura del contenedor */
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin perder proporción */
+    opacity: 0.3; /* Opcional, le da un toque decorativo */
+    pointer-events: none; /* No permite que la imagen interfiera con otros elementos clickeables */
+}
+
+  /* Contenedor de las cards */
+.habitaciones {
+    position: relative;
+    margin-top: -500px; /* Ajusta el espacio hacia arriba para que las cards se ubiquen más abajo */
+    z-index: 1; /* Asegura que las cards estén sobre la imagen */
+}
+
+  /* Cards de las habitaciones */
+#card-container {
+    position: relative;
+    z-index: 2; /* Asegura que las cards estén encima de la imagen */
+    padding: 3rem 0 0 0; /* Ajusta el espacio superior de las cards si es necesario */
+}
+
+.cocina-quincho {
+    background: linear-gradient(
+        to bottom,
+      rgba(253, 239, 214, 0) 0%,       /* Transparente arriba */
+      rgba(253, 239, 214, 1) 20%,      /* Empieza el color sólido */
+      rgba(253, 239, 214, 1) 80%,      /* Termina el color sólido */
+      rgba(253, 239, 214, 0) 100%      /* Transparente abajo */
+    );
+    width: 100%;
 }
 
 .titulohabitaciones{
@@ -147,6 +233,8 @@
     font-family: "Amaranth-Regular";
 }
 
+
+
 .btn-primary {
     background-color: rgb(158, 99, 29); 
     border-color: rgb(253, 239, 214); 
@@ -161,14 +249,6 @@
     }
 }
 
-.cocina-quincho{
-    background-color: rgb(253, 239, 214);
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    
-
-}
 
 .modal-title{
     color:rgb(158, 99, 29);
@@ -176,6 +256,49 @@
     text-align: center;
     font-size: 1.375rem;
     font-weight: 900;
+}
+
+.barra-reserva {
+    background-color: rgb(253, 239, 214);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 80%;
+    margin: 2rem auto;
+    font-family: "Amaranth-Regular";
+}
+
+.barra-reserva label {
+    font-family: "Amaranth-bold";
+    color: rgb(158, 99, 29);
+}
+
+.barra-reserva input[type="date"] , input[type="number"] {
+    padding: 0.5rem;
+    border: 1px solid rgb(158, 99, 29);
+    border-radius: 5px;
+    font-family: "Amaranth-Regular";
+    
+}
+
+.btn-reservar {
+    background-color: rgb(158, 99, 29);
+    color: white;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+    font-family: "Amaranth-bold";
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reservar:hover {
+    background-color: rgb(107, 62, 6);
 }
 
 .titulos{
@@ -190,104 +313,21 @@
     font-weight: 900;
 }
 
-.calendario{
-    background-color: rgb(253, 239, 214);
-    width: 80%;
-    max-width: 37.5rem;
-    margin: 0;
-    padding: .5rem 0;
-}
-
-.calendarioDia{
-    font-family: "Amaranth-Regular";
-    font-size: 1rem;
-}
-
-.calendarioInfo{
-    display: flex;
-    align-items: center;
-    padding: 0 2rem;
-    font-size: 1.625rem;
+.costoTotal{
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    border: 2px solid rgb(158, 99, 29);
+    background-color:  rgb(253, 239, 214);
+    border-radius: 8px;
+    box-shadow:  0 2px 8px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
     font-family: "Amaranth-bold";
-    color:rgb(158, 99, 29);
 }
 
-.calendario-prev{
-    margin-right: auto;
-    cursor: pointer;
-    font-size: 1.4rem;
-}
-
-.calendario-next{
-    margin-left: auto;
-    cursor: pointer;
-    font-size: 1.4rem;
-}
-
-.caledarioWeek{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: .625rem;
-}
-
-.calendario-mes{
-    padding: .5rem 1em;
-}
-
-.calendario-anio{
-    padding: .5rem 1em;
-}
-
-.calendarioDia{
-    text-align: center;
-    line-height: 2;
-}
-.calendarioData{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: .625rem;
-}
-.today{
-    background: rgb(158, 99, 29); 
-    color:white;
-    width: 50%;
-    border-radius: 50%;
-    margin: auto;
-}
-
-.calendarioUltimoDia{
-    opacity: 0.3;
-}
-
-.selected-range{
-    background-color:  rgb(107, 62, 6);
-    color: white;
-}
-
-.selected{
-    background-color: rgb(107, 62, 6);
-    color: white;
-}
-
-.cantidadDePersonas{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.mt-3{
-    font-family: "Amaranth-Regular";
-}
-
-.containedorReserva {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items:flex-start;
-    margin: 0 auto; 
-    
-}
+.contenedorMaps {
+    padding-top: 150px; /* O ajustá según prefieras */
+  }
 
 .tituloGoogleMap{ 
     color:rgb(158, 99, 29);
@@ -295,27 +335,66 @@
     text-align: center;
     font-size: 2.5rem;
     font-weight: 900;
+    margin: .3125rem;
 }
 
-
-.contenedorMapa{
-    border-color: rgb(158, 99, 29);
-    margin: 0rem 0rem 1.875rem 0rem;
-    width: 100%; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.imagenDecorativaFondo2 {
+    position: relative;
+    width: 100%;
+    height: 540px;
+    z-index: 1;
+  }
+  
+  .imagenDecorativa2 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    pointer-events: none;
+   
+  }
+  
+  /* Este es el contenedor del mapa que se superpone a la imagen */
+  .mapa-ajustada {
+    max-width: 600px;
+    width: 100%;
+    padding: 16px;
+    background-color: rgb(253, 239, 214);
+    border: 1px solid rgb(158, 99, 29);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     
-}
+    position: absolute;
+    top: 10px; /* ajustá este valor para que el mapa quede encima de la imagen */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  
+  
+  
+  .embed-responsive {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .embed-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
 
-.embed-responsive {
-    width: 100%;
-    height: 100%;
-}
-.embed-responsive-item {
-    width: 100%;
-    height: 100%;
-}
+
+
 .imagenLogo{
     margin: .625rem .625rem 0rem .625rem;
     display: flex;

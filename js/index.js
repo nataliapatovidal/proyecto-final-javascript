@@ -104,228 +104,93 @@ const CARD_CONTAINER2 = document.getElementById('card-container2');
         miJson2();
 
 
-let nombresMes = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-
-let fechaActual = new Date ();
-let diaActual = fechaActual.getDate();
-let mesNumero = fechaActual.getMonth();
-let anioActual = fechaActual.getFullYear();
-
-let data = document.getElementById('data');
-let mes = document.getElementById('mes');
-let anio = document.getElementById('anio');
-let prevMesDom = document.getElementById ('prev-mes');
-let nextMesDom = document.getElementById ('next-mes');
-
-
-
-mes.textContent = nombresMes [mesNumero];
-anio.textContent = anioActual.toString();
-
-prevMesDom.addEventListener('click', ()=>lastMes());
-nextMesDom.addEventListener('click', ()=>nextMes());   
-
-calcularMes(mesNumero);
-
-
-function calcularMes(mes){
-    data.innerHTML = ''; 
-    
-     // Días del mes anterior
-    for (let i = startDay(); i > 0; i--) {
-        const diaPrevio = obtenerDiasTotalesMes(mesNumero - 1) - (i - 1);
-        data.innerHTML += `<div class="calendarioDia calendarioUltimoDia" data-date="${anioActual}-${mesNumero}-${diaPrevio}">${diaPrevio}</div>`;
-    }
-
-    for (let i = 1; i <= obtenerDiasTotalesMes(mes); i++) {
-        const claseHoy = (i === diaActual) ? "today" : "";
-        data.innerHTML += `<div class="calendarioDia ${claseHoy}" data-date="${anioActual}-${mes + 1}-${i}">${i}</div>`;
-    }
-
-    seleccionarFecha();
-}
-
-let fechaInicio = null;
-let fechaFinal = null;
-
-function seleccionarFecha() {
-    document.querySelectorAll('.calendarioDia').forEach(dia => {
-        dia.addEventListener('click', (event) => {
-            const clickedDate = new Date(event.target.dataset.date);
-
-            if (!fechaInicio || (fechaInicio && fechaFinal)) {
-                // Resetea el rango
-                fechaInicio = clickedDate;
-                fechaFinal = null;
-                resetCalendario();
-                event.target.classList.add('selected');
-            } else if (clickedDate >= fechaInicio) {
-                fechaFinal = clickedDate;
-                marcarRango(fechaInicio, fechaFinal);
+        
+    // Función para redireccionar a WhatsApp con el mensaje pre-armado:contentReference[oaicite:3]{index=3}
+    document.addEventListener('DOMContentLoaded', function () {
+        const llegadaInput = document.getElementById('llegada');
+        const salidaInput = document.getElementById('salida');
+        const huespedesInput = document.getElementById('huespedes');
+        const btnCotizar = document.getElementById('btnCotizar');
+        const btnReiniciar = document.getElementById('btnReiniciar');
+        const costoTotalContainer = document.getElementById('costoTotal');
+      
+        function updateReservationInfo() {
+          const llegadaVal = llegadaInput.value;
+          const salidaVal = salidaInput.value;
+          const personas = parseInt(huespedesInput.value, 10) || 0;
+      
+          if (llegadaVal && salidaVal) {
+            const llegadaDate = new Date(llegadaVal);
+            const salidaDate = new Date(salidaVal);
+      
+            let diffTime = salidaDate - llegadaDate;
+            let dias = Math.round(diffTime / (1000 * 60 * 60 * 24));
+            if (isNaN(dias) || dias < 0) dias = 0;
+      
+            const diasCobrados = dias < 3 ? 3 : dias;
+            const precioPorDia = 30000;
+            let total = precioPorDia * diasCobrados;
+            if (personas > 3) {
+              total *= personas;
             }
-        });
-    });
-}
-
-function obtenerDiasTotalesMes(mes){
-    if (mes === -1) mes = 11;
-    if ([0, 2, 4, 6, 7, 9, 11].includes(mes)) return 31;
-    if ([3, 5, 8, 10].includes(mes)) return 30;
-    return isleap() ? 29 : 28;
-}
-
-function isleap(){
-    return ((anioActual % 100 !==0) && (anioActual % 4 ===0) || (anioActual % 400 === 0));
-}
-
-function startDay(){
-    let start = new Date(anioActual, mesNumero, 1);
-    return (start.getDay() === 0) ? 6 : start.getDay();
-}
-
-function lastMes(){
-    mesNumero = mesNumero === 0 ? 11 : mesNumero - 1;
-    anioActual-= mesNumero === 11 ? 1 : 0;
-    calcularNuevaFecha();
-}
-
-function nextMes(){
-    mesNumero = mesNumero === 11 ? 0 : mesNumero + 1;
-    anioActual += mesNumero === 0 ? 1 : 0;
-    calcularNuevaFecha();
-}
-
-function calcularNuevaFecha(){
-    fechaActual.setFullYear( anioActual, mesNumero, diaActual);
-    mes.textContent = nombresMes[mesNumero];
-    anio.textContent = anioActual.toString();
-    data.textContent = ''; //controlar//
-    calcularMes(mesNumero);
-}
-
-function marcarRango(fechaInicio, fechaFinal) {
-    resetCalendario()
-    document.querySelectorAll('.calendarioDia').forEach(dia => {
-        const dayDate = new Date(dia.dataset.date);
-        if (dayDate >= fechaInicio && dayDate <= fechaFinal) {
-            dia.classList.add('selected-range');
+      
+            // Mostrar el contenedor y contenido
+            costoTotalContainer.style.display = 'block';
+            costoTotalContainer.innerHTML = `
+              <p><strong>Días reservados:</strong> ${dias}</p>
+              <p><strong>Huéspedes:</strong> ${personas}</p>
+              <p><strong>Costo total:</strong> $${total.toLocaleString('es-AR')}</p>
+              <button id="btnReservar" class="btn btn-primary mt-2">Reservar por WhatsApp</button>
+            `;
+    
+            // Guardar en localStorage
+            localStorage.setItem('llegada', llegadaVal);
+            localStorage.setItem('salida', salidaVal);
+            localStorage.setItem('dias', dias.toString());
+            localStorage.setItem('personas', personas.toString());
+            localStorage.setItem('total', total.toString());
+    
+            // Asociar evento a botón "Reservar" dinámicamente
+            const btnReservar = document.getElementById('btnReservar');
+            btnReservar.addEventListener('click', redirectToWhatsApp);
+            }
         }
-    });
-}
-
-function resetCalendario() {
-    document.querySelectorAll('.calendarioDia').forEach(dia => {
-        dia.classList.remove('selected', 'selected-range');
-    });
-}
-
-
-let cantidadDePersonas = 0; 
-
-
-document.querySelectorAll('.dropdown-item').forEach(item => {
-    item.addEventListener('click', (event) => {
-        cantidadDePersonas = parseInt(event.target.textContent); 
-        document.getElementById("resultado").textContent = "Cantidad de personas seleccionadas: " + cantidadDePersonas;
-    });
-});
-
-function fechaDeReserva (fechaInicio, fechaFinal){
-
-    const unDiaDeEstadiaEnMil = 24 * 60 * 60 * 1000;
-    const diferenciaDeEstadiaMil = fechaFinal - fechaInicio;
-
-    return Math.round (diferenciaDeEstadiaMil / unDiaDeEstadiaEnMil);
-}
-
-let cotizarBtn = document.getElementById('cotizarBtn');
-
-cotizarBtn.addEventListener('click', () => {
-    if (fechaInicio && fechaFinal) {
-        cotizar(); 
-    } else {
-        alert("Por favor, selecciona un rango de fechas válido.");
-    }
-});
-
-
-function cotizar() {
-     // Calcular el número de días basado en las fechas seleccionadas
-    let cantidadDias = fechaDeReserva(fechaInicio, fechaFinal); // esta función calcular días
-        document.getElementById("cantidadDias").textContent = `Cantidad de días: ${cantidadDias}`;
     
-    if (cantidadDias <= 0) {
-        alert("Selecciona un rango válido de fechas.");
-        return null; // Salir de la función si no es un rango válido
-    }
-
-    let costoPorDia = 10000;
-    let costoMinimo = costoPorDia * 3;
-    let costoTotal;
-
-    if (cantidadDePersonas <= 3) {
-         costoTotal = costoMinimo * cantidadDias;
-    } else {
-         costoTotal = (costoPorDia * cantidadDePersonas) * cantidadDias;
-    }
-    document.getElementById("costoTotal").textContent = `El costo total de la estadía es: $${costoTotal}`;
+        function redirectToWhatsApp() {
+            const llegadaVal = localStorage.getItem('llegada') || '';
+            const salidaVal = localStorage.getItem('salida') || '';
+            const dias = localStorage.getItem('dias') || '0';
+            const personas = localStorage.getItem('personas') || '0';
+            const total = localStorage.getItem('total') || '0';
     
-
-const COTIZACION = {
-    dias: cantidadDias,
-    personas: cantidadDePersonas,
-    total: costoTotal
-};
-
-localStorage.setItem("COTIZACION", JSON.stringify(COTIZACION));
-
-return costoTotal;
-
-}
-
-
-let reservarBtn = document.getElementById('reservarBtn');
-
-reservarBtn.addEventListener('click', () => {
-    if (fechaInicio && fechaFinal) {
-
-        const costoTotal = cotizar();
-
-        // Validar si se calculó correctamente
-        if (costoTotal === null) {
-            return; // Salir si las fechas no son válidas
+            if (llegadaVal && salidaVal && parseInt(dias) > 0) {
+            const mensaje = `Hola, me interesa realizar una reserva. Aquí están los detalles:
+    
+        Llegada: ${llegadaVal}
+        Salida: ${salidaVal}
+        Días: ${dias}
+        Huéspedes: ${personas}
+        Total: $${parseInt(total).toLocaleString('es-AR')}`;
+    
+            const MENSAJEURI = encodeURIComponent(mensaje);
+            const NUMEROWHATSAPP = "5493543583577";
+            const url = `https://api.whatsapp.com/send?phone=${NUMEROWHATSAPP}&text=${MENSAJEURI}`;
+            window.open(url, '_blank');
+            } else {
+            alert("Por favor, selecciona un rango de fechas válido.");
+            }
         }
-
-        const FECHADEINICIOFORMATEADA = new Date(fechaInicio).toLocaleDateString('es-AR', {
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric'
-        });
-
-        const FECHADEFINALFORMATEADA = new Date(fechaFinal).toLocaleDateString('es-AR', {
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric'
-        });
     
-        
-        const MENSAJE = `Hola, me interesa realizar una reserva. Aquí están los detalles:
-        - Fecha de inicio: ${FECHADEINICIOFORMATEADA}
-        - Fecha de fin: ${FECHADEFINALFORMATEADA}
-        - Cantidad de personas: ${cantidadDePersonas}
-        - Costo total: $${costoTotal}`;
-        
-        const MENSAJEURI = encodeURIComponent(MENSAJE);
-        const NUMEROWHATSAPP  = "5493543583577";
-        const url = `https://api.whatsapp.com/send?phone=${NUMEROWHATSAPP}&text=${MENSAJEURI}`;
-        window.open(url, '_blank');
-    } else {
-        alert("Por favor, selecciona un rango de fechas válido.");
-    }
-});
-
-
-
-
-
-
+        function reiniciarFormulario() {
+            llegadaInput.value = '';
+            salidaInput.value = '';
+            huespedesInput.value = '';
+            costoTotalContainer.innerHTML = '';
+            costoTotalContainer.style.display = 'none';
+            localStorage.clear();
+        }
+    
+        // Asociar eventos
+        btnCotizar.addEventListener('click', updateReservationInfo);
+        btnReiniciar.addEventListener('click', reiniciarFormulario);
+        });

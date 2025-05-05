@@ -42,127 +42,125 @@
           </nav>
     </header>
     <main>
-      <section class="portada ">
-        <img src="./assets/fondoWeb.png" class="fondoRio img-fluid" alt="fondo con rio">
-        <h1 class="h1">¡Dinsfruta tus Vacaciones!</h1>
-          <p class="p">Bellísima  y acogedora casita <br> 
-          rodeada de verdes, con todas las <br> comodidades y espacios que la hacen única, <br> para tener una magnifica y acogedora estadía.</p>
-          <h3 class="h3">ALQUILER TEMPORARIO A 100 MTS DEL RIO</h3>
+      <section class="portada">
+        <div class="titulo-sobre-imagen">
+          <h1 class="titulo">¡Disfruta tus Vacaciones!</h1>
+        </div>
+      
+        <img src="./assets/IMAGEN FONDO_Mesa de trabajo 1.png" class="fondoRio img-fluid" alt="fondo con rio">
+      
+        <div class="contenido-inferior">
+          <p class="descripcion">
+            Bellísima y acogedora casita rodeada de verdes, <br>
+            con todas las comodidades y espacios que la hacen única, <br>
+            para tener una magnífica y acogedora estadía.
+          </p>
+      
+          <div class="texto-derecho">
+            <h3 class="alquiler">ALQUILER TEMPORARIO A 100 MTS DEL RIO</h3>
+            <h2 class="h2">VILLA CIUDAD PARQUE</h2>
+          </div>
+        </div>
       </section>
+      
+
       <section class="cuerpo ">
+        <div class="row">
         <h3 class="titulosServicios" id="titulosServicios">Servicios</h3>
-        <section class="parrafoServicios">
-          <div>
-            <p><i class="fi fi-ss-circle-small"></i> Capacidad: 10 personas</p>
-            <p><i class="fi fi-ss-circle-small"></i> Tres Habitaciones</p>
-            <p><i class="fi fi-ss-circle-small"></i> Ropa Blanca (c/sábanas- s/ Toallas)</p>
-            <p><i class="fi fi-ss-circle-small"></i> 2 Baños completos Sala de estar</p>
-          </div>
-          <div>
-            <p><i class="fi fi-ss-circle-small"></i> Cocina equipada</p>
-            <p><i class="fi fi-ss-circle-small"></i> Patio con césped</p>
-            <p><i class="fi fi-ss-circle-small"></i> Cochera </p>
-          </div>
-        </section>
+          <section class="parrafoServicios">
+            <div>
+              <p><i class="fi fi-ss-circle-small"></i> Capacidad: 10 personas</p>
+              <p><i class="fi fi-ss-circle-small"></i> Tres Habitaciones</p>
+              <p><i class="fi fi-ss-circle-small"></i> Ropa Blanca (c/sábanas- s/ Toallas)</p>
+              <p><i class="fi fi-ss-circle-small"></i> 2 Baños completos Sala de estar</p>
+            </div>
+            <div>
+              <p><i class="fi fi-ss-circle-small"></i> Cocina equipada</p>
+              <p><i class="fi fi-ss-circle-small"></i> Patio con césped</p>
+              <p><i class="fi fi-ss-circle-small"></i> Cochera </p>
+            </div>
+          </section>
       </section>
+
+
+    <section class="imagenDecorativaFondo">
+        <img src="./assets/adorno hojas_Mesa de trabajo 1.png" alt="Decoración" class="imagenDecorativa">
+    </section>
+
+    <div class="habitaciones">
+      <div class="container mb-2">
+        <div class="row" id="card-container"></div>
+      </div>
+    </div>
+
+    <div class="cocina-quincho py-2">
+        <div class="container-fluid">
+            <div class="row" id="card-container2"></div>
+        </div>
+    </div>
+
+
+        
       <div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg">
           <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="photoModalLabel">Más fotos</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
+            <div class="modal-header">
+              <h5 class="modal-title" id="photoModalLabel">Más fotos</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
               <div class="modal-body" id="modalBody">
               </div>
           </div>
-      </div>
-  </div>
-
-
-
-      <div class="container">
-          <div class="row" id="card-container">
         </div>
       </div>
-          <section class="container-fluid cocina-quincho">
-            <h2 class="h2">VILLA CIUDAD PARQUE</h2>
-              <div class="container-fluid">
-              <div class="row" id="card-container2">
-              </div>
-          </section>
+      
+      <h5 class="tituloCalendario" id="tituloCalendario">Reserva tu estadía</h5>
 
+      <div class=" barra-reserva container my-5">
+        <div class="row g-2 align-items-end">
+          <div class="col">
+            <label for="llegada" class="form-label">Llegada</label>
+            <input type="date" id="llegada" class="form-control">
+          </div>
+          <div class="col">
+            <label for="salida" class="form-label">Salida</label>
+            <input type="date" id="salida" class="form-control">
+          </div>
+          <div class="col">
+            <label for="huespedes" class="form-label">Huéspedes</label>
+            <input type="number" id="huespedes" class="form-control" min="1" value="2">
+          </div>
+          <div class="col">
+            <button id="btnCotizar" class="btn btn-primary w-100">Cotizar</button>
+          </div>
         
-
+          <div class="col">
+            <button id="btnReiniciar" class="btn btn-primary w-100">Reiniciar</button>
+          </div>
+      
+        </div>
+      </div>
           
-          <h5 class="tituloCalendario" id="tituloCalendario">Reserva tu estadía</h5>
-          <section class="containedorReserva">
 
-              <div class="calendario card mb-4" id="calendario">
-        
-                <div class="calendarioInfo">
-                  <div class="calendario-prev" id="prev-mes"><i class="bi bi-arrow-left-square-fill"></i></div>
-                  <div class="calendario-mes" id="mes"></div>
-                  <div class="calendario-anio" id="anio"></div>
-                  <div class="calendario-next" id="next-mes"><i class="bi bi-arrow-right-square-fill"></i></div>
-                </div>
-        
-                <div class="caledarioWeek">
-                  <div class="calendarioDia Calendar-item">Dom</div>
-                  <div class="calendarioDia  Calendar-item">Lun</div>
-                  <div class="calendarioDia  Calendar-item">Mar</div>
-                  <div class="calendarioDia Calendar-item">Miér</div>
-                  <div class="calendarioDia Calendar-item">Jue</div>
-                  <div class="calendarioDia  Calendar-item">Vier</div>
-                  <div class="calendarioDia  Calendar-item">Sáb</div>
-                </div>
-                
-                <div class="calendarioData" id="data"></div>
-            </div>
-              
-
-            </div>
-          </div>
-
-
-    <div class="impresion ">
-    <div class="personas "  id= "cantidadDePersonas">
-      <button class="btn btn-primary dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Cantidad De Personas
-      </button>
-      <div class="dropdown-menu p-3">
-        <div class="dropdown-item cantidadDePersonas dos-personas">2</div>
-        <div class="dropdown-item cantidadDePersonas tres-personas">3</div>
-        <div class="dropdown-item cantidadDePersonas cuatro-personas">4</div>
-        <div class="dropdown-item cantidadDePersonas cinco-personas">5</div>
-        <div class="dropdown-item cantidadDePersonas seis-personas">6</div>
-        <div class="dropdown-item cantidadDePersonas siete-personas">7</div>
-        <div class="dropdown-item cantidadDePersonas ocho-personas">8</div>
-        <div class="dropdown-item cantidadDePersonas nueve-personas">9</div>
-        <div class="dropdown-item cantidadDePersonas diez-personas">10</div>
-      </div>
-    </div>
-
-    <div id="resultado" class="mt-3"></div>
-    <div id="cantidadDias" class="mt-3"></div>
-    <div id="costoTotal" class="mt-3"></div>
-  </div>
-    <div class="botonReserva ">
-    <button type="button" class="btn btn-primary" id="cotizarBtn">Cotizar</button>
-    </div>
-    <div class="botonReserva ">
-      <button type="button" class="btn btn-primary" id="reservarBtn">Reservar</button>
-      </div>
-
-
-</section> 
-
-      <h6 class="tituloGoogleMap" id="map">Ubicación</h6>
-          <div class="contenedorMapa btn btn-primary p-3 c-100">
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item w-100"src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13548.576666385508!2d-64.5631104!3d-31.9026801!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d2b3f199830fc9%3A0x2794884a97fff11a!2sCasa%20Los%20Abrazos!5e0!3m2!1ses-419!2sar!4v1732656796500!5m2!1ses-419!2sar"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
+      <div id="costoTotal" class="costoTotal mx-auto text-center"></div>
+      <h5 class="tituloGoogleMap" id="tituloGoogleMap">Ubicación</h5>
+      <section class="imagenDecorativaFondo2">
+        <img src="./assets/adorno hojas_Mesa de trabajo 2.png" alt="Decoración" class="imagenDecorativa2">
+      <div class="contenedorMaps">
+        <div class="mapa-ajustada">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item w-100"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13548.576666385508!2d-64.5631104!3d-31.9026801!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d2b3f199830fc9%3A0x2794884a97fff11a!2sCasa%20Los%20Abrazos!5e0!3m2!1ses-419!2sar!4v1732656796500!5m2!1ses-419!2sar"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
           </div>
         </div>
+      </div>
+      
+      
+      </section>
+      
+
     </main>
 
 
