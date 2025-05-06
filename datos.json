@@ -3,17 +3,38 @@
     {
         "nombre": "Habitación 1",
         "descripcion": "Cama matrimonial",
-        "imagen": "./assets/pieza-1.jpg"
+        "imagen": "./assets/pieza-1.jpg",
+
+        "fotosAdicionales": [
+            "./assets/pieza-1.jpg"
+        ],
+        "fotosAdicionales2": [
+            "./assets/pieza-1a.jpg"
+        ]
     },
     {
         "nombre": "Habitación 2",
-        "descripcion": "cama matrimonial, cama de una plaza, cucheta",
-        "imagen": "./assets/pieza-2.jpg"
+        "descripcion": "Cama matrimonial, de una plaza y cucheta",
+        "imagen": "./assets/pieza-2.jpg",
+        
+        "fotosAdicionales": [
+            "./assets/pieza-2.jpg"
+        ],
+        "fotosAdicionales2": [
+            "./assets/pieza-2a.jpg"
+        ]
     },
     {
         "nombre": "Habitación 3",
-        "descripcion": "cama matrimonial, cucheta",
-        "imagen": "./assets//pieza-3.jpg"
+        "descripcion": "Cama matrimonial, cucheta",
+        "imagen": "./assets//pieza-3.jpg",
+        
+        "fotosAdicionales": [
+            "./assets/pieza-3b.jpg"
+        ],
+        "fotosAdicionales2": [
+            "./assets/pieza-3a.jpg"
+        ]
     }
     
 ],
@@ -21,7 +42,7 @@
     "SERVICIOS": [
     {
         "nombre": "Sala de estar - Cocina",
-        "descripcion": "Heladera, Microondas y vajilla, TV, Cable, Netflix y Wifi",
+        "descripcion": "Heladera, Microondas, vajilla, TV, Cable, Netflix, Wifi",
         "imagen": "./assets/comedor.jpg",
         "fotosAdicionales": [
             "./assets/LIVING.jpg"
