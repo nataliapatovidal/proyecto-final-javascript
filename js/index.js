@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (isNaN(dias) || dias < 0) dias = 0;
 
             const diasCobrados = dias < 3 ? 3 : dias;
-            const precioPorDia = 30000;
+            const precioPorDia = 50000;
             let total = precioPorDia * diasCobrados;
             if (personas > 3) {
                 total *= personas;
