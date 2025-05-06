@@ -85,7 +85,7 @@ const CARD_CONTAINER2 = document.getElementById('card-container2');
                     const modalBody = document.getElementById('modalBody');
                     modalBody.innerHTML = '';
         
-                    // Agregar las fotos adicionales
+                
                     servicios.fotosAdicionales.forEach(foto => {
                         modalBody.innerHTML += `<img src="${foto}" class="img-fluid mb-2" alt="Foto adicional">`;
                     });
@@ -93,7 +93,7 @@ const CARD_CONTAINER2 = document.getElementById('card-container2');
                         modalBody.innerHTML += `<img src="${foto}" class="img-fluid mb-2" alt="Foto adicional">`;
                     });
         
-                    // Mostrar el modal
+                
                     const photoModal = new bootstrap.Modal(document.getElementById('photoModal'));
                     photoModal.show();
                 })
@@ -105,7 +105,7 @@ const CARD_CONTAINER2 = document.getElementById('card-container2');
 
 
         
-    // Función para redireccionar a WhatsApp con el mensaje pre-armado:contentReference[oaicite:3]{index=3}
+    
     document.addEventListener('DOMContentLoaded', function () {
         const llegadaInput = document.getElementById('llegada');
         const salidaInput = document.getElementById('salida');
@@ -113,44 +113,41 @@ const CARD_CONTAINER2 = document.getElementById('card-container2');
         const btnCotizar = document.getElementById('btnCotizar');
         const btnReiniciar = document.getElementById('btnReiniciar');
         const costoTotalContainer = document.getElementById('costoTotal');
-      
+    
         function updateReservationInfo() {
-          const llegadaVal = llegadaInput.value;
-          const salidaVal = salidaInput.value;
-          const personas = parseInt(huespedesInput.value, 10) || 0;
-      
-          if (llegadaVal && salidaVal) {
+            const llegadaVal = llegadaInput.value;
+            const salidaVal = salidaInput.value;
+            const personas = parseInt(huespedesInput.value, 10) || 0;
+    
+            if (llegadaVal && salidaVal) {
             const llegadaDate = new Date(llegadaVal);
             const salidaDate = new Date(salidaVal);
-      
+    
             let diffTime = salidaDate - llegadaDate;
             let dias = Math.round(diffTime / (1000 * 60 * 60 * 24));
             if (isNaN(dias) || dias < 0) dias = 0;
-      
+    
             const diasCobrados = dias < 3 ? 3 : dias;
             const precioPorDia = 30000;
             let total = precioPorDia * diasCobrados;
             if (personas > 3) {
               total *= personas;
             }
-      
-            // Mostrar el contenedor y contenido
+    
             costoTotalContainer.style.display = 'block';
             costoTotalContainer.innerHTML = `
-              <p><strong>Días reservados:</strong> ${dias}</p>
-              <p><strong>Huéspedes:</strong> ${personas}</p>
-              <p><strong>Costo total:</strong> $${total.toLocaleString('es-AR')}</p>
-              <button id="btnReservar" class="btn btn-primary mt-2">Reservar por WhatsApp</button>
+                <p><strong>Días reservados:</strong> ${dias}</p>
+                <p><strong>Huéspedes:</strong> ${personas}</p>
+                <p><strong>Costo total:</strong> $${total.toLocaleString('es-AR')}</p>
+                <button id="btnReservar" class="btn btn-primary mt-2">Reservar por WhatsApp</button>
             `;
     
-            // Guardar en localStorage
             localStorage.setItem('llegada', llegadaVal);
             localStorage.setItem('salida', salidaVal);
             localStorage.setItem('dias', dias.toString());
             localStorage.setItem('personas', personas.toString());
             localStorage.setItem('total', total.toString());
     
-            // Asociar evento a botón "Reservar" dinámicamente
             const btnReservar = document.getElementById('btnReservar');
             btnReservar.addEventListener('click', redirectToWhatsApp);
             }
@@ -190,7 +187,6 @@ const CARD_CONTAINER2 = document.getElementById('card-container2');
             localStorage.clear();
         }
     
-        // Asociar eventos
         btnCotizar.addEventListener('click', updateReservationInfo);
         btnReiniciar.addEventListener('click', reiniciarFormulario);
         });

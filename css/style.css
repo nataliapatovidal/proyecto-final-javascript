@@ -21,23 +21,44 @@
 }
 
 .navbar-custom {
-    background-color: rgb(253, 239, 214); /* Cambia este valor por el color que prefieras */
+    background-color: rgb(253, 239, 214); 
 }
 
 
 .logo{
     max-width: 9.375rem;
 }
+.nav-link {
+    list-style: none;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-family: "Amaranth-bold";
+    gap: 1.875rem;
+    margin-left: 1.875rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: rgb(158, 99, 29); 
+}
+
+.nav-link.active:hover {
+    color: rgb(158, 99, 29); 
+}
+
+.nav-link disabled :hover {
+    color: rgb(158, 99, 29); 
+}
+
 
 .portada {
     position: relative;
     text-align: center;
 }
 
-  /* SUPERPONER H1 SOBRE LA IMAGEN, MÁRGEN INFERIOR IZQUIERDO */
 .titulo-sobre-imagen {
     position: absolute;
-    bottom: 9.375rem;
+    bottom: 7.5rem;
     left: 2rem;
     z-index: 2;
 }
@@ -61,7 +82,6 @@
     margin: 0 auto;
 }
 
-  /* PARTE INFERIOR */
 .contenido-inferior {
     display: flex;
     justify-content: space-between;
@@ -105,29 +125,6 @@
     display: inline-block;
 }
 
-
-.nav-link {
-    list-style: none;
-    text-decoration: none;
-    font-size: 1.25rem;
-    font-family: "Amaranth-bold";
-    gap: 1.875rem;
-    margin-left: 1.875rem;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: rgb(158, 99, 29); 
-}
-
-.nav-link.active:hover {
-    color: rgb(158, 99, 29); 
-}
-
-.nav-link disabled :hover {
-    color: rgb(158, 99, 29); 
-}
-
 .titulosServicios{
     color:rgb(158, 99, 29);
     font-family: "freescpt";
@@ -153,10 +150,10 @@
 .cuerpo{
     background: linear-gradient(
         to bottom,
-      rgba(253, 239, 214, 0) 2%,       /* Transparente arriba */
-      rgba(253, 239, 214, 1) 20%,      /* Empieza el color sólido */
-      rgba(253, 239, 214, 1) 80%,      /* Termina el color sólido */
-      rgb(253, 239, 214) 100%      /* Transparente abajo */
+        rgba(253, 239, 214, 0) 2%,       
+        rgba(253, 239, 214, 1) 20%,      
+        rgba(253, 239, 214, 1) 80%,      
+        rgb(253, 239, 214) 100%      
     );
     padding: 30px 0rem 0rem 0rem;
     
@@ -168,12 +165,11 @@
     text-align: center;
 }
 
-/* Contenedor de la imagen decorativa */
 .imagenDecorativaFondo {
     position: relative;
-    width: 100%; /* Asegura que la imagen ocupe todo el ancho */
-    height: 540px; /* Ajusta la altura de la imagen según necesites */
-    overflow: hidden; /* Asegura que la imagen no sobresalga del contenedor */
+    width: 100%; 
+    height: 540px; 
+    overflow: hidden; 
 }
 
 .imagenDecorativa {
@@ -181,35 +177,35 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%; /* Hace que la imagen ocupe todo el ancho */
-    height: 100%; /* Hace que la imagen ocupe toda la altura del contenedor */
-    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin perder proporción */
-    opacity: 0.3; /* Opcional, le da un toque decorativo */
-    pointer-events: none; /* No permite que la imagen interfiera con otros elementos clickeables */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    opacity: 0.3; 
+    pointer-events: none; 
 }
 
-  /* Contenedor de las cards */
+
 .habitaciones {
     position: relative;
-    margin-top: -500px; /* Ajusta el espacio hacia arriba para que las cards se ubiquen más abajo */
-    z-index: 1; /* Asegura que las cards estén sobre la imagen */
+    margin-top: -500px; 
+    z-index: 1; 
 }
 
-  /* Cards de las habitaciones */
+
 #card-container {
     position: relative;
-    z-index: 2; /* Asegura que las cards estén encima de la imagen */
-    padding: 3rem 0 0 0; /* Ajusta el espacio superior de las cards si es necesario */
+    z-index: 2; 
+    padding: 3rem 0 0 0; 
 }
 
 .cocina-quincho {
     background: linear-gradient(
         to bottom,
-      rgba(253, 239, 214, 0) 0%,       /* Transparente arriba */
-      rgba(253, 239, 214, 1) 20%,      /* Empieza el color sólido */
-      rgba(253, 239, 214, 1) 80%,      /* Termina el color sólido */
-      rgba(253, 239, 214, 0) 100%      /* Transparente abajo */
-    );
+        rgba(253, 239, 214, 0) 0%,       
+        rgba(253, 239, 214, 1) 20%,      
+        rgba(253, 239, 214, 1) 80%,      
+        rgba(253, 239, 214, 0) 100%      
+        );
     width: 100%;
 }
 
@@ -264,8 +260,8 @@
     flex-wrap: wrap;
     justify-content:center;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 1000px;
+    padding: 1.25rem;
     border-radius: 10px;
     max-width: 80%;
     margin: 2rem auto;
@@ -325,10 +321,6 @@
     font-family: "Amaranth-bold";
 }
 
-.contenedorMaps {
-    padding-top: 150px; /* O ajustá según prefieras */
-  }
-
 .tituloGoogleMap{ 
     color:rgb(158, 99, 29);
     font-family: "freescpt";
@@ -342,12 +334,13 @@
     position: relative;
     width: 100%;
     height: 540px;
+    margin: 10px 0px 0px 0px;
     z-index: 1;
-  }
-  
-  .imagenDecorativa2 {
+}
+
+.imagenDecorativa2 {
     position: absolute;
-    top: 0;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -355,43 +348,40 @@
     object-fit: cover;
     opacity: 0.3;
     pointer-events: none;
-   
-  }
-  
-  /* Este es el contenedor del mapa que se superpone a la imagen */
-  .mapa-ajustada {
-    max-width: 600px;
+}
+
+.mapa-cuadrado {
+    max-width: 630px;
     width: 100%;
     padding: 16px;
     background-color: rgb(253, 239, 214);
     border: 1px solid rgb(158, 99, 29);
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    
     position: absolute;
-    top: 10px; /* ajustá este valor para que el mapa quede encima de la imagen */
+    top: 6rem; 
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-  }
-  
-  
-  
-  .embed-responsive {
+}
+
+
+
+.embed-responsive {
     position: relative;
     padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-  }
-  
-  .embed-responsive iframe {
+}
+
+.embed-responsive iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border: 0;
-  }
+}
 
 
 
@@ -412,7 +402,7 @@
 }
 
 .dropdown-menu {
-    width: auto; /* Asegura que el menú desplegable se alinee con el botón */
+    width: auto; 
 }
 
 footer ul {
@@ -457,7 +447,7 @@ footer li {
         }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 870px) {
     .parrafoServicios {
         display: flex;
         flex-direction: column;
@@ -466,25 +456,66 @@ footer li {
         text-align: center;
     }
 
-    .containedorReserva{
+    .titulo-sobre-imagen {
+        position: static;
+        transform: none;
+        text-align: center;
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+        }
+    
+        .titulo {
+        font-size: 3.125rem;
+        padding: 0.5rem;
+        text-align: center;
+        }
+    
+        .contenido-inferior {
         flex-direction: column;
         align-items: center;
+        text-align: center;
+        margin-top: .25rem;
+        }
+    
+        .descripcion,
+        .texto-derecho {
+        font-size: 1.125rem;
+        max-width: 100%;
+        padding: .375rem;
+        text-align: center;
+        margin-bottom: 1.875rem;
+        }
+
+        .barra-reserva .row {
+            flex-direction: column !important;
+            align-items: stretch;
+        }
+        
+        .barra-reserva .col {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        
+        .barra-reserva button {
+            width: 100%;
+        }
+        #costoTotal {
+            max-width: 90%;
+            margin: 1rem auto;
+            padding: 1rem;
+            background-color: rgb(253, 239, 214);
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mapa-cuadrado {
+            position: static;
+            transform: none;
+            margin: 2rem auto;
+            width: 90%;
+        }
     }
 
-    .calendarioInfo{
-        font-size:20px;
-    }
-}
+    
 
-@media (max-width: 415px) {
-    .calendario{
-        width: 94%;
-    }
-
-    .calendarioInfo{
-        font-size: 1rem;
-    }
-    .calendarioDia{
-        font-size: 1rem;
-    }
-}
+    
